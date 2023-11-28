@@ -1,12 +1,60 @@
+- [Docker Image based on Ubuntu for Pwn debug](#docker-image-based-on-ubuntu-for-pwn-debug)
+  - [pull image](#pull-image)
+  - [Example](#example)
+  - [run container](#run-container)
+  - [attach container](#attach-container)
+  - [check container](#check-container)
+  - [build image](#build-image)
+  - [Note](#note)
+  - [Feature](#feature)
+
+
+# Docker Image based on Ubuntu for Pwn debug
+基于`Ubuntu`构建并用于快速调试`pwn`题的镜像
+
 ## pull image
 
-pull from <https://hub.docker.com/r/roderickchan/debug_pwn_env/tags>, such as `docker pull roderickchan/debug_pwn_env:23.04-2.37-0ubuntu2.1-20231127`. The tag of the image means `Ubuntu 23.04`, glibc version `2.37-0ubuntu2.1` and image built in `2023-11-27`. 
+pull images from <https://hub.docker.com/r/roderickchan/debug_pwn_env/tags>, such as `docker pull roderickchan/debug_pwn_env:23.04-2.37-0ubuntu2.1-20231127`. The tag of the image means `Ubuntu 23.04`, glibc version `2.37-0ubuntu2.1` and image built in `2023-11-27`. 
 
 I introduce how to use `docker` in a Chinese [blog](https://www.roderickchan.cn/zh-cn/2023-02-13-%E4%BD%BF%E7%94%A8docker%E8%B0%83%E8%AF%95pwn%E9%A2%98/). 
 
-可以根据镜像的`tag`查找自己所需的镜像。
-
 点击[博客](https://www.roderickchan.cn/zh-cn/2023-02-13-%E4%BD%BF%E7%94%A8docker%E8%B0%83%E8%AF%95pwn%E9%A2%98/)查看如何使用`docker`调试`pwn`题。
+
+Current tags in the [dockerhub](https://hub.docker.com/r/roderickchan/debug_pwn_env/tags):  
+现有的镜像[列表](https://hub.docker.com/r/roderickchan/debug_pwn_env/tags)：
+
+| Ubuntu Version | Glibc Version    | Pull command                                                 | User/Password| Status |
+| :------------: | :--------------: | :----------------------------------------------------------: | :-- | :-: |
+| Ubuntu 23.10   | 2.38-1ubuntu6  | docker pull roderickchan/debug_pwn_env:23.10-2.38-1ubuntu6-20231127 | 1. root/root<br />2. ctf/ctf | **Updating** |
+| Ubuntu 23.04   | 2.37-0ubuntu2.1  | docker pull roderickchan/debug_pwn_env:23.04-2.37-0ubuntu2.1-20231127 | 1. root/root<br />2. ctf/ctf | **Updating** |
+| Ubuntu 22.04   | 2.35-0ubuntu3.4  | docker pullroderickchan/debug_pwn_env:22.04-2.35-0ubuntu3.4-20231127 | 1. root/root<br />2. ctf/ctf | **Updating** |
+| Ubuntu 22.04   | 2.35-0ubuntu3.1  | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3.1-20230213 | 1. root/root<br />2. roderick | Archived |
+| Ubuntu 22.04   | 2.35-0ubuntu3    | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3-20220707 | 1. root/root<br />2. roderick | Archived |
+| Ubuntu 20.04   | 2.31-0ubuntu9.12 | docker pull roderickchan/debug_pwn_env:20.04-2.31-0ubuntu9.12-20231127 | 1. root/root<br />2. ctf/ctf | **Updating** |
+| Ubuntu 20.04   | 2.31-0ubuntu9.9  | docker pull roderickchan/debug_pwn_env:20.04-2.31-0ubuntu9.9-20230213 | 1. root/root<br />2. roderick | Archived |
+| Ubuntu 20.04   | 2.31-0ubuntu9.7  | docker pull roderickchan/debug_pwn_env:20.04-2.31-0ubuntu9.7-20220525 | 1. root/root<br />2. roderick | Archived |
+| Ubuntu 21.10   | 2.34-0ubuntu3.2  | docker pull roderickchan/debug_pwn_env:21.10-2.34-0ubuntu3.2-20220707 | 1. root/root<br />2. roderick | Archived |
+| Ubuntu 21.04   | 2.33-0ubuntu5    | docker pull roderickchan/debug_pwn_env:21.04-2.33-0ubuntu5-20220908 | 1. root/root<br />2. roderick | Archived |
+| Ubuntu 18.04   | 2.27-3ubuntu1.6  | docker pull roderickchan/debug_pwn_env:18.04-2.27-3ubuntu1.6-20230213 | 1. root/root<br />2. roderick | Archived |
+| Ubuntu 18.04   | 2.27-3ubuntu1.5  | docker pull roderickchan/debug_pwn_env:18.04-2.27-3ubuntu1.5-20220525 | 1. root/root<br />2. roderick | Archived |
+
+
+
+Two users in the image:  
+- `root` user and password: `root/root`  
+- `ctf` user and password: `ctf/ctf`
+
+## Example  
+
+This example uses the old image. The normal username in old image was `roderick`, the current username is now `ctf`.
+
+示例采用原来的镜像。原来的普通用户名为`roderick`，现在的普通用户名为`ctf`。
+
+[![asciicast](https://asciinema.org/a/623588.svg)](https://asciinema.org/a/623588)
+
+This example uses the updating image:  
+
+[![asciicast](https://asciinema.org/a/623673.svg)](https://asciinema.org/a/623673)
 
 ## run container
 
@@ -70,7 +118,7 @@ docker run -it -d -v $PWD:/home/ctf/hacker -p 10001:10001 --privileged IMAGE_ID 
 
 ## Feature 
 
-software and packages in the image: 
+software and packages in the image:   
 镜像中含有的软件和包：
 
 - pwncli

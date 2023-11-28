@@ -64,7 +64,6 @@ RUN useradd ${NORMAL_USER_NAME} -d /home/${NORMAL_USER_NAME} -m -s /bin/bash -u 
     cp -r /root/pwntools /home/${NORMAL_USER_NAME} && \
     cp -r /root/Pwngdb /home/${NORMAL_USER_NAME} && \
     cp -r /root/pwncli /home/${NORMAL_USER_NAME} && \
-    
     cp /root/.tmux.conf /home/${NORMAL_USER_NAME} && \
     cp /root/.gdbinit /home/${NORMAL_USER_NAME} && \
     cp /flag /home/${NORMAL_USER_NAME} && \
