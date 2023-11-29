@@ -88,7 +88,7 @@ USER ${NORMAL_USER_NAME}:${NORMAL_USER_NAME}
 WORKDIR /home/${NORMAL_USER_NAME}
 
 
-# install zsh
+# install on-my-zsh
 RUN curl -fsSL -O https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh && \
     chmod +x  ./install.sh && \ 
     sed -i -e 's/read[[:space:]]*-r[[:space:]]*opt/opt=n/g' ./install.sh && \

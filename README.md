@@ -1,20 +1,22 @@
-- [Docker Image based on Ubuntu for Pwn debug](#docker-image-based-on-ubuntu-for-pwn-debug)
-  - [pull image](#pull-image)
+
+- [Docker Image Based On Ubuntu For Pwn Debug](#docker-image-based-on-ubuntu-for-pwn-debug)
+  - [Pull Image](#pull-image)
   - [Example](#example)
-  - [run container](#run-container)
-  - [attach container](#attach-container)
-  - [check container](#check-container)
-  - [build image](#build-image)
-  - [Note](#note)
+  - [Run Container](#run-container)
+  - [Attach Container](#attach-container)
+  - [Check Container](#check-container)
+  - [Build Image](#build-image)
+  - [Use Zsh](#use-zsh)
   - [Feature](#feature)
 
 
-# Docker Image based on Ubuntu for Pwn debug
+# Docker Image Based On Ubuntu For Pwn Debug
+
 基于`Ubuntu`构建并用于快速调试`pwn`题的镜像
 
-## pull image
+## Pull Image
 
-pull images from <https://hub.docker.com/r/roderickchan/debug_pwn_env/tags>, such as `docker pull roderickchan/debug_pwn_env:23.04-2.37-0ubuntu2.1-20231127`. The tag of the image means `Ubuntu 23.04`, glibc version `2.37-0ubuntu2.1` and image built in `2023-11-27`. 
+Pull images from <https://hub.docker.com/r/roderickchan/debug_pwn_env/tags>, such as `docker pull roderickchan/debug_pwn_env:23.04-2.37-0ubuntu2.1-20231127`. The tag of the image means `Ubuntu 23.04`, glibc version `2.37-0ubuntu2.1` and image built in `2023-11-27`. 
 
 I introduce how to use `docker` in a Chinese [blog](https://www.roderickchan.cn/zh-cn/2023-02-13-%E4%BD%BF%E7%94%A8docker%E8%B0%83%E8%AF%95pwn%E9%A2%98/). 
 
@@ -56,7 +58,7 @@ This example uses the updating image:
 
 [![asciicast](https://asciinema.org/a/623673.svg)](https://asciinema.org/a/623673)
 
-## run container
+## Run Container
 
 启动容器：
 
@@ -70,7 +72,7 @@ docker run -it -d -v host_path:container_path -p host_port:container_port --priv
 docker run -it -d -v host_path:container_path -p host_port:container_port --privileged IMAGE_ID /bin/sh # privileged enabled and auto update 给特权标志和自动更新
 ```
 
-## attach container
+## Attach Container
 
 进入容器(enter a container)：
 
@@ -79,18 +81,18 @@ docker exec -it CONTAINER_ID /bin/sh
 docker exec -it -u root CONTAINER_ID /bin/sh
 ```
 
-## check container 
+## Check Container 
 
 检查容器是否正常：
 ```
 /bin/test-this-container.sh
 ```
 
-input `q` after launching `gdb` successfully.
+input `q` in gdb to exit.  
 进入`gdb`后输入`q`退出。
 
 
-## build image
+## Build Image
 
 构建镜像(single build)：
 
@@ -98,17 +100,19 @@ input `q` after launching `gdb` successfully.
 docker build --build-arg BUILD_VERSION=20.04 -t debug_pwn_env:20.04 .
 ```
 
-自动构建(auto build): 
+自动构建(auto build):
+
 ```shell
+
 chmod +x ./auto_compile.sh
 ./auto_compile.sh
 ```
 
-## Note 
+## Use Zsh
 
-注意：镜像中安装了`oh-my-zsh`，提供`zsh-autosuggestions`和`zsh-syntax-highlighting`擦火箭，推荐使用`zsh`作为`shell`登入。
+注意：镜像中安装了`oh-my-zsh`，提供`zsh-autosuggestions`和`zsh-syntax-highlighting`插件，推荐使用`zsh`作为`shell`登入。
 
-I have install `oh-my-zsh` and `zsh-autosuggestions` plugin, `zsh-syntax-highlighting` plugin in the image, if you like it, please launch a container with `/bin/zsh`.
+I have installed `oh-my-zsh` and `zsh-autosuggestions` plugin, `zsh-syntax-highlighting` plugin in the image, if you like it, please launch a container with `/bin/zsh`.
 
 example:
 
@@ -118,7 +122,7 @@ docker run -it -d -v $PWD:/home/ctf/hacker -p 10001:10001 --privileged IMAGE_ID 
 
 ## Feature 
 
-software and packages in the image:   
+Software and packages in the image:   
 镜像中含有的软件和包：
 
 - pwncli
