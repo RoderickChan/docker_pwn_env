@@ -35,7 +35,8 @@ Current tags in the [dockerhub](https://hub.docker.com/r/roderickchan/debug_pwn_
 | Ubuntu 23.10   | 2.38-1ubuntu6  | docker pull roderickchan/debug_pwn_env:23.10-2.38-1ubuntu6-20231127 | 1. root/root<br />2. ctf/ctf | **Updating** |
 | Ubuntu 23.04   | 2.37-0ubuntu2.2  | docker pull roderickchan/debug_pwn_env:23.04-2.37-0ubuntu2.2-20231211 | 1. root/root<br />2. ctf/ctf | **Updating** |
 | Ubuntu 23.04   | 2.37-0ubuntu2.1  | docker pull roderickchan/debug_pwn_env:23.04-2.37-0ubuntu2.1-20231127 | 1. root/root<br />2. ctf/ctf | Archived |
-| Ubuntu 22.04   | 2.35-0ubuntu3.5  | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3.5-20231211 | 1. root/root<br />2. ctf/ctf | **Updating** |
+| Ubuntu 22.04   | 2.35-0ubuntu3.6  | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3.6-20240113 | 1. root/root<br />2. ctf/ctf | **Updating** |
+| Ubuntu 22.04   | 2.35-0ubuntu3.5  | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3.5-20231211 | 1. root/root<br />2. ctf/ctf | Archived |
 | Ubuntu 22.04   | 2.35-0ubuntu3.4  | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3.4-20231127 | 1. root/root<br />2. ctf/ctf | Archived |
 | Ubuntu 22.04   | 2.35-0ubuntu3.1  | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3.1-20230213 | 1. root/root<br />2. roderick | Archived |
 | Ubuntu 22.04   | 2.35-0ubuntu3    | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3-20220707 | 1. root/root<br />2. roderick | Archived |

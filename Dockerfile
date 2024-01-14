@@ -46,12 +46,13 @@ COPY ./gdb-gef /bin
 COPY ./gdb-pwndbg /bin
 COPY ./update.sh /bin
 COPY ./test-this-container.sh /bin
+COPY ./heaptrace /bin
 COPY ./.tmux.conf ./
 COPY ./.gdbinit ./
 COPY ./flag /
 COPY ./flag /flag.txt
 
-RUN chmod +x /bin/gdb-gef /bin/gdb-pwndbg /bin/update.sh /bin/test-this-container.sh && \
+RUN chmod +x /bin/gdb-gef /bin/gdb-pwndbg /bin/update.sh /bin/test-this-container.sh /bin/heaptrace && \
     echo "root:root" | chpasswd && \
     python3 -m pip install --upgrade pip && \
     pip3 install ropper capstone z3-solver qiling lief
@@ -80,8 +81,8 @@ RUN pip3 install --upgrade --editable ./pwntools && \
 
 # switch to root and install zsh
 USER root:root
-RUN apt-get install -y sudo zsh && \
-    echo "${NORMAL_USER_NAME} ALL=(ALL) NOPASSWD : ALL" | tee /etc/sudoers.d/ctfsudo
+RUN apt-get install -y sudo zsh && usermod -s /bin/zsh ctf && \
+    echo "${NORMAL_USER_NAME} ALL=(ALL) NOPASSWD : ALL" | tee /etc/sudoers.d/ctfsudo 
 
 # switch 2 normal user
 USER ${NORMAL_USER_NAME}:${NORMAL_USER_NAME}
