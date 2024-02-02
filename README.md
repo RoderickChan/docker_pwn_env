@@ -31,21 +31,22 @@ Current tags in the [dockerhub](https://hub.docker.com/r/roderickchan/debug_pwn_
 
 | Ubuntu Version | Glibc Version    | Pull command                                                 | User/Password| Status |
 | :------------: | :--------------: | :----------------------------------------------------------: | :-- | :-: |
-| Ubuntu 24.04   | 2.38-3ubuntu1  | docker pull roderickchan/debug_pwn_env:24.04-2.38-3ubuntu1-20231211 | 1. root/root<br />2. ctf/ctf | **Updating** |
-| Ubuntu 23.10   | 2.38-1ubuntu6  | docker pull roderickchan/debug_pwn_env:23.10-2.38-1ubuntu6-20231127 | 1. root/root<br />2. ctf/ctf | **Updating** |
-| Ubuntu 23.04   | 2.37-0ubuntu2.2  | docker pull roderickchan/debug_pwn_env:23.04-2.37-0ubuntu2.2-20231211 | 1. root/root<br />2. ctf/ctf | **Updating** |
+| Ubuntu 24.04   | 2.38-3ubuntu1    | docker pull roderickchan/debug_pwn_env:24.04-2.38-3ubuntu1-20231211   | 1. root/root<br />2. ctf/ctf | 🚩Updating|
+| Ubuntu 23.10   | 2.38-1ubuntu6.1  | docker pull roderickchan/debug_pwn_env:23.10-2.38-1ubuntu6.1-20240202 | 1. root/root<br />2. ctf/ctf | 🚩Updating|
+| Ubuntu 23.10   | 2.38-1ubuntu6    | docker pull roderickchan/debug_pwn_env:23.10-2.38-1ubuntu6-20231127   | 1. root/root<br />2. ctf/ctf | Archived |
+| Ubuntu 23.04   | 2.37-0ubuntu2.2  | docker pull roderickchan/debug_pwn_env:23.04-2.37-0ubuntu2.2-20231211 | 1. root/root<br />2. ctf/ctf | 🚩Updating|
 | Ubuntu 23.04   | 2.37-0ubuntu2.1  | docker pull roderickchan/debug_pwn_env:23.04-2.37-0ubuntu2.1-20231127 | 1. root/root<br />2. ctf/ctf | Archived |
-| Ubuntu 22.04   | 2.35-0ubuntu3.6  | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3.6-20240113 | 1. root/root<br />2. ctf/ctf | **Updating** |
+| Ubuntu 22.04   | 2.35-0ubuntu3.6  | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3.6-20240113 | 1. root/root<br />2. ctf/ctf | 🚩Updating|
 | Ubuntu 22.04   | 2.35-0ubuntu3.5  | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3.5-20231211 | 1. root/root<br />2. ctf/ctf | Archived |
 | Ubuntu 22.04   | 2.35-0ubuntu3.4  | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3.4-20231127 | 1. root/root<br />2. ctf/ctf | Archived |
 | Ubuntu 22.04   | 2.35-0ubuntu3.1  | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3.1-20230213 | 1. root/root<br />2. roderick | Archived |
-| Ubuntu 22.04   | 2.35-0ubuntu3    | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3-20220707 | 1. root/root<br />2. roderick | Archived |
-| Ubuntu 20.04   | 2.31-0ubuntu9.14 | docker pull roderickchan/debug_pwn_env:20.04-2.31-0ubuntu9.14-20231211 | 1. root/root<br />2. ctf/ctf | **Updating** |
+| Ubuntu 22.04   | 2.35-0ubuntu3    | docker pull roderickchan/debug_pwn_env:22.04-2.35-0ubuntu3-20220707   | 1. root/root<br />2. roderick | Archived |
+| Ubuntu 20.04   | 2.31-0ubuntu9.14 | docker pull roderickchan/debug_pwn_env:20.04-2.31-0ubuntu9.14-20231211 | 1. root/root<br />2. ctf/ctf | 🚩Updating|
 | Ubuntu 20.04   | 2.31-0ubuntu9.12 | docker pull roderickchan/debug_pwn_env:20.04-2.31-0ubuntu9.12-20231127 | 1. root/root<br />2. ctf/ctf | Archived |
 | Ubuntu 20.04   | 2.31-0ubuntu9.9  | docker pull roderickchan/debug_pwn_env:20.04-2.31-0ubuntu9.9-20230213 | 1. root/root<br />2. roderick | Archived |
 | Ubuntu 20.04   | 2.31-0ubuntu9.7  | docker pull roderickchan/debug_pwn_env:20.04-2.31-0ubuntu9.7-20220525 | 1. root/root<br />2. roderick | Archived |
 | Ubuntu 21.10   | 2.34-0ubuntu3.2  | docker pull roderickchan/debug_pwn_env:21.10-2.34-0ubuntu3.2-20220707 | 1. root/root<br />2. roderick | Archived |
-| Ubuntu 21.04   | 2.33-0ubuntu5    | docker pull roderickchan/debug_pwn_env:21.04-2.33-0ubuntu5-20220908 | 1. root/root<br />2. roderick | Archived |
+| Ubuntu 21.04   | 2.33-0ubuntu5    | docker pull roderickchan/debug_pwn_env:21.04-2.33-0ubuntu5-20220908   | 1. root/root<br />2. roderick | Archived |
 | Ubuntu 18.04   | 2.27-3ubuntu1.6  | docker pull roderickchan/debug_pwn_env:18.04-2.27-3ubuntu1.6-20230213 | 1. root/root<br />2. roderick | Archived |
 | Ubuntu 18.04   | 2.27-3ubuntu1.5  | docker pull roderickchan/debug_pwn_env:18.04-2.27-3ubuntu1.5-20220525 | 1. root/root<br />2. roderick | Archived |
 
@@ -58,9 +59,9 @@ Two users in the image:
 
 This example uses the old image. The normal username in old image was `roderick`, the current username is now `ctf`.
 
-示例采用原来的镜像。原来的普通用户名为`roderick`，现在的普通用户名为`ctf`。
+以下示例采用原来的镜像。原来的普通用户名为`roderick`，现在的普通用户名为`ctf`。
 
-![](https://lynne-markdown.oss-cn-hangzhou.aliyuncs.com/img/623588.gif)
+![](https://github.com/RoderickChan/docker_pwn_env/blob/main/gif/623588.gif?raw=true)
 
 可在`asciinema`上观看：
 
@@ -71,7 +72,7 @@ This example uses the old image. The normal username in old image was `roderick`
 
 This example uses the updating image:  
 
-![](https://lynne-markdown.oss-cn-hangzhou.aliyuncs.com/img/623673.gif)
+![](https://github.com/RoderickChan/docker_pwn_env/blob/main/gif/623673.gif?raw=true)
 
 可在`asciinema`上观看：
 
