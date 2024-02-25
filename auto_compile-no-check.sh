@@ -25,7 +25,6 @@ if [ "$NEED_PUSH" -eq "1" ]; then
     fi
 fi
 
-exit 0
 
 regex_pattern="2\.[0-9]+-[0-9]+ubuntu[0-9]+\.?[0-9]*"
 

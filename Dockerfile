@@ -36,7 +36,7 @@ RUN git clone https://${HUB_DOMAIN}/NixOS/patchelf.git && \
 RUN git clone https://${HUB_DOMAIN}/hugsy/gef.git && \
     git clone https://${HUB_DOMAIN}/RoderickChan/Pwngdb.git && \
     git clone https://${HUB_DOMAIN}/Gallopsled/pwntools && \
-    (mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.old || true) && \
+    (mv /usr/lib/python3.1?/EXTERNALLY-MANAGED /etc/EXTERNALLY-MANAGED.bck || true) && \
     pip3 install --upgrade --editable ./pwntools && \
     git clone https://${HUB_DOMAIN}/RoderickChan/pwncli.git && \
     pip3 install --upgrade --editable ./pwncli
