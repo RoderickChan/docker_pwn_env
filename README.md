@@ -31,7 +31,8 @@ Current tags in the [dockerhub](https://hub.docker.com/r/roderickchan/debug_pwn_
 
 | Ubuntu Version | Glibc Version    | Pull command                                                 | User/Password| Status |
 | :------------: | :--------------: | :----------------------------------------------------------: | :-- | :-: |
-| Ubuntu 24.04   | 2.39-0ubuntu6    | docker pull roderickchan/debug_pwn_env:24.04-2.39-0ubuntu6-20240324   | 1. root/root<br />2. ctf/ctf | 🚩Updating|
+| Ubuntu 24.04   | 2.39-0ubuntu8    | docker pull roderickchan/debug_pwn_env:24.04-2.39-0ubuntu8-20240412   | 1. root/root<br />2. ctf/ctf | 🚩Updating|
+| Ubuntu 24.04   | 2.39-0ubuntu6    | docker pull roderickchan/debug_pwn_env:24.04-2.39-0ubuntu6-20240324   | 1. root/root<br />2. ctf/ctf | Archived|
 | Ubuntu 24.04   | 2.39-0ubuntu2    | docker pull roderickchan/debug_pwn_env:24.04-2.39-0ubuntu2-20240225   | 1. root/root<br />2. ctf/ctf | Archived|
 | Ubuntu 24.04   | 2.38-3ubuntu1    | docker pull roderickchan/debug_pwn_env:24.04-2.38-3ubuntu1-20240207   | 1. root/root<br />2. ctf/ctf | Archived|
 | Ubuntu 24.04   | 2.38-3ubuntu1    | docker pull roderickchan/debug_pwn_env:24.04-2.38-3ubuntu1-20231211   | 1. root/root<br />2. ctf/ctf | Archived|
@@ -52,6 +53,7 @@ Current tags in the [dockerhub](https://hub.docker.com/r/roderickchan/debug_pwn_
 | Ubuntu 21.04   | 2.33-0ubuntu5    | docker pull roderickchan/debug_pwn_env:21.04-2.33-0ubuntu5-20220908   | 1. root/root<br />2. roderick | Archived |
 | Ubuntu 18.04   | 2.27-3ubuntu1.6  | docker pull roderickchan/debug_pwn_env:18.04-2.27-3ubuntu1.6-20230213 | 1. root/root<br />2. roderick | Archived |
 | Ubuntu 18.04   | 2.27-3ubuntu1.5  | docker pull roderickchan/debug_pwn_env:18.04-2.27-3ubuntu1.5-20220525 | 1. root/root<br />2. roderick | Archived |
+| Ubuntu 16.04   | 2.23-0ubuntu11.3  | docker pull roderickchan/debug_pwn_env:16.04-2.23-0ubuntu11.3-20240412 | 1. root/root<br />2. ctf/ctf | 🚩Updating |
 
 
 Two users in the image:  
@@ -130,6 +132,8 @@ docker build --build-arg BUILD_VERSION=20.04 -t debug_pwn_env:20.04 .
 chmod +x ./auto_compile.sh
 ./auto_compile.sh
 ```
+
+构建`Ubuntu 16.04`的镜像，请使用`Dockerfile.ubuntu-16.04`文件(use Dockerfile.ubuntu-16.04 to build Ubuntu-16.04 image)
 
 ## Use Zsh
 

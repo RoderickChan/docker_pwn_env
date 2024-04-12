@@ -1,3 +1,7 @@
+# used for compile ubuntu 16.04 debugging pwn image
+# author: roderick
+# date: 2024-04-06
+
 ARG BUILD_VERSION
 
 FROM ubuntu:$BUILD_VERSION
@@ -13,30 +17,53 @@ ENV LC_ALL=en_US.UTF-8
 
 WORKDIR /root
 
+# install ruby 2.7 
 RUN apt-get update && apt-get -y dist-upgrade && apt-get install -y --fix-missing python3 python3-pip python3-dev lib32z1 \
-    xinetd curl gcc gdb gdbserver g++ git libssl-dev libffi-dev build-essential tmux \
-    vim iputils-ping gdb-multiarch \
-    file net-tools socat ruby ruby-dev locales autoconf automake libtool make && \
-    gem install one_gadget && \
-    gem install seccomp-tools && \
+    xinetd curl gcc g++ gdbserver git libssl-dev libffi-dev build-essential tmux \
+    vim iputils-ping \
+    file net-tools socat locales autoconf automake libtool make wget && \
+    wget http://ftp.ruby-lang.org/pub/ruby/2.7/ruby-2.7.1.tar.gz && \
+    tar -xzvf ruby-2.7.1.tar.gz && \
+    cd ruby-2.7.1/ && \
+    ./configure && \
+    make -j16 && \
+    make install -j16 && \
+    gem install one_gadget seccomp-tools && \
     sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
+
+# install python 3.8
+RUN apt-get install -y zlib1g-dev libbz2-dev libncurses5-dev libsqlite3-dev libreadline-dev tk-dev libgdbm-dev \
+    libdb-dev libpcap-dev xz-utils libexpat1-dev liblzma-dev libc6-dev && \
+    wget https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tgz && \
+    tar -xzvf Python-3.8.6.tgz && \
+    cd Python-3.8.6 && \
+    ./configure --enable-optimizations && \
+    make -j16 && make install -j16 && rm -rf /usr/bin/pip3 /usr/bin/python3 /usr/bin/python /usr/bin/pip && \
+    ln -s /usr/local/bin/python3.8 /usr/bin/python3 && \
+    ln -s /usr/local/bin/python3.8 /usr/bin/python && \
+    ln -s /usr/local/bin/pip3.8 /usr/bin/pip3 && \
+    ln -s /usr/local/bin/pip3.8 /usr/bin/pip
+
+# install gdb manually
+RUN apt-get install -y texinfo && \
+    wget https://ftp.gnu.org/gnu/gdb/gdb-10.2.tar.gz && \
+    tar -xzvf gdb-10.2.tar.gz && cd gdb-10.2 && ./configure --enable-targets=all && \
+    make -j16 && make install -j16
+
 
 # 先执行容易失败的操作
 RUN git clone https://${HUB_DOMAIN}/pwndbg/pwndbg && \
-    cd ./pwndbg && \
-    ./setup.sh
+    cd ./pwndbg && git checkout ubuntu18.04-final && \
+    ./setup.sh && ./.venv/bin/pip3 install --upgrade --force-reinstall 'requests==2.6.0' urllib3 && \
+    pip3 install --upgrade --force-reinstall 'requests==2.6.0' urllib3
 
-RUN git clone https://${HUB_DOMAIN}/NixOS/patchelf.git && \
-    cd ./patchelf && \
-    ./bootstrap.sh && \
-    ./configure && \
-    make && \
-    make install
+# install patchelf 
+RUN wget https://mirrors.tuna.tsinghua.edu.cn/ubuntu/pool/universe/p/patchelf/patchelf_0.9-1~ubuntu16.04.3_amd64.deb && \
+    dpkg -i patchelf_0.9-1~ubuntu16.04.3_amd64.deb
 
 RUN git clone https://${HUB_DOMAIN}/hugsy/gef.git && \
     git clone https://${HUB_DOMAIN}/RoderickChan/Pwngdb.git && \
     git clone https://${HUB_DOMAIN}/Gallopsled/pwntools && \
-    (mv /usr/lib/python3.1?/EXTERNALLY-MANAGED /etc/EXTERNALLY-MANAGED.bck || true) && \
     pip3 install --upgrade --editable ./pwntools && \
     git clone https://${HUB_DOMAIN}/RoderickChan/pwncli.git && \
     pip3 install --upgrade --editable ./pwncli
@@ -54,10 +81,9 @@ COPY ./flag /flag.txt
 
 RUN chmod +x /bin/gdb-gef /bin/gdb-pwndbg /bin/update.sh /bin/test-this-container.sh /bin/heaptrace && \
     echo "root:root" | chpasswd && \
-    python3 -m pip install --upgrade pip && \
     pip3 install ropper capstone z3-solver qiling lief
 
-# normal user
+# root user
 RUN useradd ${NORMAL_USER_NAME} -d /home/${NORMAL_USER_NAME} -m -s /bin/bash -u 1001 && \
     echo "${NORMAL_USER_NAME}:${NORMAL_USER_NAME}" | chpasswd && \
     cp -r /root/pwndbg /home/${NORMAL_USER_NAME} && \
@@ -76,7 +102,8 @@ USER ${NORMAL_USER_NAME}:${NORMAL_USER_NAME}
 WORKDIR /home/${NORMAL_USER_NAME}
 
 RUN pip3 install --upgrade --editable ./pwntools && \
-    pip3 install --upgrade --editable ./pwncli
+    pip3 install --upgrade --editable ./pwncli && \
+    pip3 install --upgrade --force-reinstall 'requests==2.6.0' urllib3
 
 
 # switch to root and install zsh
