@@ -5,6 +5,9 @@ source ~/Pwngdb/angelheap/gdbinit.py
 # don't skip repeat value when use telescope
 set telescope-skip-repeating-val off
 
+# show flags
+set show-flags on
+
 # show LR in aarch64
 set show-retaddr-reg on
 
