@@ -54,7 +54,7 @@ COPY ./flag /flag.txt
 
 RUN chmod +x /bin/gdb-gef /bin/gdb-pwndbg /bin/update.sh /bin/test-this-container.sh /bin/heaptrace && \
     echo "root:root" | chpasswd && \
-    python3 -m pip install --upgrade pip && \
+    (python3 -m pip install --upgrade pip || true ) && \
     pip3 install ropper capstone z3-solver qiling lief
 
 # normal user
