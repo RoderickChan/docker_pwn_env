@@ -13,11 +13,11 @@ DOCKERHUB_PASSWORD=""
 today=$(date +%Y%m%d)
 
 # versions to compile
-versions=("20.04" "22.04" "23.04" "23.10" "24.04")
+versions=("20.04" "22.04" "23.04" "23.10" "24.04" "24.10")
 
 if [ "$NEED_PUSH" -eq "1" ]; then
 
-    glibcs=("2.31-0ubuntu9.14" "2.35-0ubuntu3.6" "2.37-0ubuntu2.2" "2.38-1ubuntu6.1" "2.39-0ubuntu8")
+    glibcs=("2.31-0ubuntu9.16" "2.35-0ubuntu3.8" "2.37-0ubuntu2.2" "2.38-1ubuntu6.3" "2.39-0ubuntu8.2" "2.39-0ubuntu9")
 
     v_length=${#versions[@]}
     g_length=${#glibcs[@]}
