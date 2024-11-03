@@ -31,8 +31,8 @@ Current tags in the [dockerhub](https://hub.docker.com/r/roderickchan/debug_pwn_
 
 | Ubuntu Version | Glibc Version    | Pull command                                                 | User/Password| Status |
 | :------------: | :--------------: | :----------------------------------------------------------: | :---: | :---: |
-| Ubuntu 24.10   | 2.39-0ubuntu9  | docker pull roderickchan/debug_pwn_env:24.10-2.40-1ubuntu3-20240922     | 1. root/root<br />2. ctf/ctf | 🚩Updating|
-| Ubuntu 24.04   | 2.39-0ubuntu8.2  | docker pull roderickchan/debug_pwn_env:24.04-2.39-0ubuntu8.3-20240922 | 1. root/root<br />2. ctf/ctf | 🚩Updating|
+| Ubuntu 24.10   | 2.40-1ubuntu3  | docker pull roderickchan/debug_pwn_env:24.10-2.40-1ubuntu3-20240922     | 1. root/root<br />2. ctf/ctf | 🚩Updating|
+| Ubuntu 24.04   | 2.39-0ubuntu8.3  | docker pull roderickchan/debug_pwn_env:24.04-2.39-0ubuntu8.3-20240922 | 1. root/root<br />2. ctf/ctf | 🚩Updating|
 | Ubuntu 24.10   | 2.39-0ubuntu9  | docker pull roderickchan/debug_pwn_env:24.10-2.39-0ubuntu9-20240804     | 1. root/root<br />2. ctf/ctf | Archived|
 | Ubuntu 24.04   | 2.39-0ubuntu8.2  | docker pull roderickchan/debug_pwn_env:24.04-2.39-0ubuntu8.2-20240818 | 1. root/root<br />2. ctf/ctf | Archived|
 | Ubuntu 24.04   | 2.39-0ubuntu8.2  | docker pull roderickchan/debug_pwn_env:24.04-2.39-0ubuntu8.2-20240601 | 1. root/root<br />2. ctf/ctf | Archived|
